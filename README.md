@@ -1,5 +1,8 @@
 # node-FE
 
 
+FE: react
 
-NodeJS, express, mongoDB, mongoose 
+BE: NodeJS, express
+
+DB: MongoDB, mongoose

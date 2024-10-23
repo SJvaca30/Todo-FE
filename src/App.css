@@ -72,13 +72,13 @@ button{
   font-weight: 700;
 }
 
-.display-center{
+.display-center {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
 }
 
 .button-box{
@@ -93,12 +93,18 @@ button{
 }
 
 .error-message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #ff4d4d;
   background-color: #ffe6e6;
   padding: 10px;
   border-radius: 4px;
-  margin-bottom: 15px;
   text-align: center;
   font-weight: bold;
   border: 1px solid #ff4d4d;
+  z-index: 1000;
+  width: 80%;
+  max-width: 600px;
 }

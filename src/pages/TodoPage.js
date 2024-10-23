@@ -60,6 +60,13 @@ const TodoPage = ({ onLogout }) => {
       console.log('error', error);
     }
   };
+
+  const handleKeyPress = event => {
+    if (event.key === 'Enter' && todoValue.trim() !== '') {
+      addTodo();
+    }
+  };
+
   return (
     <Container>
       <div className="todo-header">
@@ -74,12 +81,17 @@ const TodoPage = ({ onLogout }) => {
             type="text"
             placeholder="할일을 입력하세요"
             onChange={event => setTodoValue(event.target.value)}
+            onKeyDown={handleKeyPress}
             className="input-box"
             value={todoValue}
           />
         </Col>
         <Col xs={12} sm={2}>
-          <button onClick={addTodo} className="button-add">
+          <button
+            onClick={addTodo}
+            className="button-add"
+            disabled={todoValue.trim() === ''}
+          >
             추가
           </button>
         </Col>

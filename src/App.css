@@ -1,64 +1,132 @@
-body{
-  color: lightblue !important ;
-  background-color: aliceblue !important; 
+:root {
+  --primary-color: #6c5ce7;
+  --secondary-color: #a8a4e9;
+  --background-color: #f8f9fa;
+  --text-color: #2d3436;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
 }
 
+body {
+  color: var(--text-color) !important;
+  background-color: var(--background-color) !important;
+  min-width: 375px;
+  overflow-x: auto;
+}
 
-
-.todo-item{
-  border: 1px solid lightblue;
+.todo-item {
+  border: none;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.todo-content{
-  padding:1em
-}
-.add-item-row{
-  margin-top:50px !important;
-  margin-bottom: 30px;
-}
-.input-box{
-  padding: 10px;
-  width:100%;
-  border: 1px solid lightblue;
-  
-  
-}
-.input-box:focus{
-  outline: none;
-}
-button{
-  background-color: lightblue;
-  color: white;
-}
-.button-add{
-  height: 40px;
-  width: 100%;
-  border: none;
-  background-color: lightblue;
-  color: white;
-}
-.button-add:hover{
-  background-color: white;
-  color: lightblue;
-  border: 2px solid lightblue;
-}
-.button-delete{
-  background-color: white;
-  border: 2px solid lightblue;
-  color: lightblue;
-  margin: 10px;
-}
-.button-delete:hover{
-  background-color: lightblue;
-  color: #ffffff;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
 }
 
-.item-complete{
-  background-color: gainsboro;
-  color:white;
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-content {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.input-box {
+  padding: 12px 16px;
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.input-box:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.button-add {
+  height: 48px;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.button-add:hover {
+  background-color: #5849c4;
+  transform: translateY(-2px);
+}
+
+.button-delete {
+  background-color: white;
+  border: 2px solid var(--secondary-color);
+  color: var(--primary-color);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  min-width: 80px;
+  transition: all 0.2s;
+}
+
+.button-delete:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.item-complete {
+  background-color: #f1f2f6;
+  opacity: 0.8;
+}
+
+.item-complete .todo-content {
+  text-decoration: line-through;
+  color: #a4b0be;
+}
+
+.author-info {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: #f1f2f6;
+  color: #747d8c;
+  font-weight: 500;
+}
+
+.todo-header {
+  margin: 32px 0;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.todo-header h1 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.todo-header button {
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary-color);
+  background-color: white;
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.todo-header button:hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .login-box{
@@ -107,4 +175,46 @@ button{
   z-index: 1000;
   width: 80%;
   max-width: 600px;
+}
+
+.todo-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
+
+.todo-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 576px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .todo-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .todo-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .button-delete {
+    flex: 1;
+    margin: 0;
+  }
+}
+
+.container {
+  min-width: 375px;
 }

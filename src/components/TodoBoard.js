@@ -4,7 +4,7 @@ import TodoItem from "./TodoItem";
 const TodoBoard = ({ todoList, deleteItem, toggleComplete }) => {
   return (
     <div>
-      <h2>Todo List</h2>
+      <br />
       {todoList.length > 0 &&
         todoList.map((item, index) => (
           <TodoItem

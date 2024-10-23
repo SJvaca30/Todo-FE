@@ -2,15 +2,15 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 import api from '../utils/api';
 
-const LoginPage = () => {
+const LoginPage = ({ setUser, user }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -28,6 +28,9 @@ const LoginPage = () => {
       setError(error.message);
     }
   };
+  if (user) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="display-center">

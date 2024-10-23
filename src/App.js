@@ -10,9 +10,9 @@ import api from './utils/api';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
   const getUser = async () => {
-    // 토큰을 통해 유저정보를 가져온다
     try {
       const storedToken = sessionStorage.getItem('token');
       if (storedToken) {
@@ -21,6 +21,8 @@ function App() {
       }
     } catch (error) {
       setUser(null);
+    } finally {
+      setLoading(false); // 로딩 완료
     }
   };
 
@@ -33,6 +35,8 @@ function App() {
   useEffect(() => {
     getUser();
   }, []);
+
+  if (loading) return null; // 로딩 중일 때는 아무것도 렌더링하지 않음
 
   return (
     <Routes>
